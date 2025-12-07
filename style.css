@@ -1,0 +1,177 @@
+:root{
+  --bg:#fffaf8;
+  --soft:#fbf7f5;
+  --card:#ffffff;
+  --muted:#6b6b6b;
+  --accent-1: #f5c9e1; /* soft pink */
+  --accent-2: #e6e0ff; /* lavender */
+  --accent-3: black; /* champagne/yellow */
+  --accent-grad: linear-gradient(135deg,var(--accent-2),var(--accent-1));
+  --text:#1e1e1e;
+  --glass: rgba(30,30,30,0.04);
+}
+
+/* Global */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Poppins', sans-serif;
+  color:var(--text);
+  background: linear-gradient(180deg, #fffdfc 0%, #fff8f6 100%);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  scroll-behavior:smooth;
+}
+
+/* NAVBAR */
+nav#mainNav{
+  background: transparent;
+  padding: 1rem 0;
+  transition: all .25s ease;
+  position:sticky;
+  z-index: 50;
+}
+nav#mainNav.scrolled{
+  background: rgba(255,255,255,0.92);
+  box-shadow: 0 10px 30px rgba(18,18,18,0.06);
+  padding:.5rem 0;
+}
+.brand{
+  color:var(--text);
+  font-weight:700;
+}
+.nav-link{ color:rgba(30,30,30,0.7); margin-left:1rem; }
+.nav-link:hover{ color:var(--text); }
+
+/* CTA buttons */
+.btn-cta{ background: linear-gradient(90deg, #ffd8b3, #f7c6e6); color:var(--text); border-radius:28px; padding:.45rem .9rem; font-weight:700; box-shadow: 0 10px 30px rgba(245,198,225,0.12); }
+.btn-outline-ghost{ background: var(--accent-grad); color:var(--text); border-radius:12px; }
+.btn-ghost{ background: var(--accent-grad); color:var(--text); border-radius:12px; }
+
+/* HERO */
+.hero{
+  position:relative;
+  min-height:84vh;
+  padding-top:80px; /* account for fixed nav */
+  overflow:visible;
+}
+.hero-overlay{
+  position:absolute; inset:0;
+  background: linear-gradient(135deg, rgba(230,224,255,0.5), rgba(245,201,225,0.45));
+  mix-blend-mode: multiply;
+  pointer-events:none;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+/* hero text */
+.eyebrow{ color:var(--accent-3); font-weight:700; letter-spacing:1px; margin-bottom:.2rem; }
+.display-4{ font-size: clamp(2rem, 4.6vw, 3.2rem); color:var(--text); line-height:1.02; }
+.subtitle{ color: rgba(30,30,30,0.7); max-width:62ch; }
+
+/* profile rounded rectangle (style 3) */
+.profile-frame{
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+  border-radius: 20px;
+  padding: 8px;
+  width: 360px;
+  max-width: 86%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow: 0 24px 60px rgba(30,30,30,0.06);
+}
+.profile-rect{
+  width:100%;
+  height: auto;
+  display:block;
+  border-radius: 14px;
+  object-fit:cover;
+  border: 6px solid rgba(255,255,255,0.8);
+}
+
+
+/* sections */
+.section{ padding:5rem 0; position:relative; z-index:2; }
+.section-alt{ background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(250,250,250,0.95)); border-top:1px solid rgba(30,30,30,0.03); }
+
+/* titles */
+.section-subtitle{ color:var(--accent-1); font-weight:700; letter-spacing:2px; text-transform:uppercase; font-size:.85rem; margin-bottom:.5rem; }
+.section-title{ font-size: clamp(1.4rem,2.8vw,2rem); margin-bottom:1rem; color:var(--text); }
+
+/* stats card */
+.stats-card{ border-radius:16px; background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9)); }
+
+/* skills progress */
+.progress{ height:10px; background:rgba(30,30,30,0.06); border-radius:10px; overflow:hidden; }
+.progress .progress-bar{ background: linear-gradient(90deg, var(--accent-2), var(--accent-1)); box-shadow: 0 8px 22px rgba(245,198,225,0.12); }
+
+/* project cards */
+.project-card{ border-radius:14px; overflow:hidden; border:1px solid rgba(30,30,30,0.03); transition: transform .28s ease, box-shadow .28s ease; background: #fff; }
+.project-card img{ width:100%; height:200px; object-fit:con; }
+.project-card:hover{ transform: translateY(-8px); box-shadow: 0 30px 70px rgba(30,30,30,0.06); }
+
+/* contact card */
+#contactForm.card{ border-radius:14px; background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.95)); }
+
+/* START of GRADIENT BUTTON for Send Message (The Change) */
+#contactForm .btn-primary {
+  /* Hapus background default Bootstrap */
+  background-color: transparent; 
+  border: none;
+  
+  /* Terapkan gradient kustom Anda */
+  background: linear-gradient(90deg, #ffd8b3, #f7c6e6);
+  color: var(--text); /* Pastikan warna teks tetap terbaca */
+  font-weight: 700;
+  border-radius: 28px; /* Mengikuti style tombol CTA di navbar */
+  box-shadow: 0 10px 30px rgba(245, 198, 225, 0.2); /* Tambahkan shadow lembut */
+  
+  /* Tambahkan style hover yang lembut */
+  transition: transform .2s ease-out, box-shadow .2s ease-out;
+}
+
+#contactForm .btn-primary:hover,
+#contactForm .btn-primary:focus {
+  /* Efek saat hover */
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(245, 198, 225, 0.3);
+  /* Penting: Pastikan Bootstrap tidak menimpa background-nya saat hover/focus */
+  background: linear-gradient(90deg, #ffd8b3, #f7c6e6);
+  background-color: transparent; 
+  color: var(--text);
+  border-color: transparent;
+}
+/* END of GRADIENT BUTTON for Send Message */
+/* tiny accents */
+.dot{ display:inline-block; width:10px; height:10px; background: linear-gradient(90deg,var(--accent-1),var(--accent-2)); border-radius:50%; margin-right:.6rem; vertical-align:middle; box-shadow: 0 6px 18px rgba(245,198,225,0.08); }
+
+/* footer */
+footer{ background:transparent; color:var(--muted); }
+
+/* small screens */
+@media (max-width: 991px){
+  .hero-overlay{ border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+  .profile-frame{ width:260px; }
+  .display-4{ font-size:2rem; text-align:center; }
+  .hero-text{ text-align:center; }
+  .decor-1, .decor-2{ display:none; }
+}
+
+/* MODAL STYLES */
+.modal-content{
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  background-color: var(--card);
+}
+/* Menggunakan accent color pada tombol close */
+.modal-header .btn-close{
+  filter: hue-rotate(300deg); /* sedikit penyesuaian warna jika diperlukan */
+}
+/* Menggunakan gaya tombol ghost untuk Close */
+.modal-footer .btn-ghost{
+  background: var(--accent-grad); 
+  color: var(--text); 
+  border-radius: 12px;
+}
